@@ -1,29 +1,35 @@
 <script>
     function FixText() {
         try {
+            var cont = document.getElementsByClassName("page-content clearfix");
+            var litags = cont[0].children[0].querySelectorAll("li");
+            const combos = ['0th', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th'];
+            const replacement = ["0<sup>th</sup>", "1<sup>st</sup>", "2<sup>nd</sup>", "3<sup>rd</sup>", "4<sup>th</sup>", "5<sup>th</sup>", "6<sup>th</sup>", "7<sup>th</sup>", "8<sup>th</sup>", "9<sup>th</sup>"];
             /*
             Search for all p tags, and look through inner html until you see x(th/st/nd) then
             Using that store all of the text in the p tag, and replace it using x <sup>(th/st/nd)</sup>
+            
+            Current PROBLEM : 
+            any text stored within a list, be it any ul then li tag, is not evaluated, and not handled
             */
-            var cont = document.getElementsByClassName("page-content clearfix");
             var Ptags = cont[0].children[0].querySelectorAll("p");
             // now since we have all of the p tags, we can try to parse out the text
             for (let i = 0; i < Ptags.length; i++) {
-                const combos = ['0th', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th'];
-                const replacement = ["0<sup>th</sup>", "1<sup>st</sup>", "2<sup>nd</sup>", "3<sup>rd</sup>", "4<sup>th</sup>", "5<sup>th</sup>", "6<sup>th</sup>", "7<sup>th</sup>", "8<sup>th</sup>", "9<sup>th</sup>"];
                 for (let j = 0; j < combos.length; j++) {
-
-                    if (Ptags[i].innerHTML.search(combos[j]) == 0) {
-                        //a replacement can be done ,and we will
-                        Ptags[i].innerHTML = Ptags[i].innerHTML.replace(combos[j], replacement[j]);
-                    }
+                    Ptags[i].innerHTML = Ptags[i].innerHTML.replace(combos[j], replacement[j]);
+                }
+            }
+            for (let k = 0; k < litags.length; k++) {
+                for (let l = 0; l < combos.length; l++) {
+                    litags[k].innerHTML = litags[k].innerHTML.replace(combos[l], replacement[l]);
                 }
             }
         }
         catch {
-            console.log("No Text to fix");
+            console.log('oh no');
         }
     }
+
     function UpdatePage() {
         FixText();
         PrepareTags();
