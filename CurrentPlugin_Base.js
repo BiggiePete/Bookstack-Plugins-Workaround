@@ -1,4 +1,3 @@
-<script>
     String.prototype.count = function (c) {
         var result = 0, i = 0;
         for (i; i < this.length; i++)if (this[i] == c) result++;
@@ -192,6 +191,8 @@
             Theta   : θ
             Omega   : Ω
             Lambda  : λ
+            Int     : ∫
+            Sigma   : Σ
         */
         var cont = document.getElementsByClassName("page-content clearfix");
         var Ptags = cont[0].children[0].querySelectorAll("p");
@@ -203,16 +204,43 @@
                 var start = Ptags[i].innerHTML.indexOf("[") +1;
                 //starting position of the string
                 var symbolstring = Ptags[i].innerHTML.slice(start,Ptags[i].innerHTML.indexOf("]"));
-                var string ='';
+                switch (symbolstring) {
+                    case "Alpha": // Detect the symbol name, since i am not Yander-Dev, i will use a switch, not if(s)
+                        
+                        break;
+                
+                    default:
+                        break;
+                }
             }
         }
     }
+    const SYMBOL_TABLE = {
+        Alpha   : 'α',
+        Beta    : 'β',
+        Gamma   : 'Γ',
+        Delta   : 'Δ',
+        Pi      : 'π',
+        Theta   : 'θ',
+        Omega   : 'Ω',
+        Lambda  : 'λ',
+        Int     : '∫',
+        Sigma   : 'Σ',
+    };
+    function SymbolReplacement(symbolname){
+        /*
+        This function simply cleans up what the switch case statement does, and makes life easier
+        */
+
+    }
     function TextFixes(){
+        Symbols();
         Carot();
         Underscore();
         NumberNames();
     }
     function UpdatePage() {
+        document.innerHTML +="<style>::-webkit-scrollbar {width: 5px;}img .Fixed-Image- :hover {cursor: pointer;}::-webkit-scrollbar-thumb {background: #c3c3c3;border-radius: 7px;}</style>"
         PrepareTags();
         AddPreview();
         TextFixes();
@@ -260,20 +288,4 @@
         catch { console.log("Looks like there are no a tags to fix here") }
     }
     window.onload = (event) => { UpdatePage(); };
-</script>
 
-<style>
-    ::-webkit-scrollbar {
-        width: 5px;
-    }
-
-    img .Fixed-Image- :hover {
-        cursor: pointer;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        background: #c3c3c3;
-        border-radius: 7px;
-    }
-</style>
