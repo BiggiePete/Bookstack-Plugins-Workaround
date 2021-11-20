@@ -189,7 +189,7 @@
         var Ptags = cont[0].children[0].querySelectorAll("p");
         var litags = cont[0].children[0].querySelectorAll("li");
         for (let i = 0; i < Ptags.length; i++) {
-            var occurances = Ptags[i].innerHTML.count("[")
+            var occurances = Ptags[i].innerHTML.count("[");
             for (let j = 0; j < occurances; j++) {
                 // for every occurance of "["
                 var symbolstring = Ptags[i].innerHTML.slice(Ptags[i].innerHTML.indexOf("[") + 1, Ptags[i].innerHTML.indexOf("]"));
@@ -203,7 +203,7 @@
             }
         }
         for (let i = 0; i < litags.length; i++) {
-            var occurances = litags[i].innerHTML.count("[")
+            var occurances = litags[i].innerHTML.count("[");
             for (let j = 0; j < occurances; j++) {
                 // for every occurance of "["
                 var symbolstring = litags[i].innerHTML.slice(litags[i].innerHTML.indexOf("[") + 1, litags[i].innerHTML.indexOf("]"));
