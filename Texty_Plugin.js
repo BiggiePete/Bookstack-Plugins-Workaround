@@ -272,7 +272,7 @@ function PrepareTags() {
             Imgs[j].style.cursor = "pointer";
         }
     }
-    catch { console.log("lmao this aint it") }
+    catch { console.log("Img Conversion Failed") }
 }
 function AddPreview() {
     try {
