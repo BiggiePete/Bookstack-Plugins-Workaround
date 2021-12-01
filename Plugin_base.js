@@ -247,6 +247,7 @@ function TextFixes() {
     NumberNames();
 }
 function UpdatePage() {
+    console.log("this is a check to see if it auto-updates");
     document.innerHTML += "<style>::-webkit-scrollbar {width: 5px;}img .Fixed-Image- :hover {cursor: pointer;}::-webkit-scrollbar-thumb {background: #c3c3c3;border-radius: 7px;}</style>"
     AddWebPrev();
     TextFixes();
