@@ -296,6 +296,6 @@ function AddPreview() {
             Atags[i].insertAdjacentHTML('afterend', "<div class='previewbox'><iframe src=" + link + " width=100%; height=500px></iframe></div><style>.previewbox{display: none;width: 100%;}a.intext:hover + .previewbox,.previewbox:hover{display: block;position: relative;z-index: 100;margin-top:-5px;}</style>");
         }
     }
-    catch { console.log("Looks like there are no a tags to fix here") }
+    catch { console.log("Looks like there are no a tags to fix her") }
 }
 window.onload = (event) => { UpdatePage(); };
