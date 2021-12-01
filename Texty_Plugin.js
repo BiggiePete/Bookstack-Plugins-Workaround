@@ -211,7 +211,9 @@ var SymbolSymbol = [
     'Ω',
     'λ',
     '∫',
-    'Σ'
+    'Σ',
+    'ε',
+    '∞'
 ]
 var SymbolName = [
     "Alpha",
@@ -223,7 +225,9 @@ var SymbolName = [
     "Omega",
     "Lambda",
     "Int",
-    "Sigma"
+    "Sigma",
+    "Epsilon",
+    "Ininity"
 ]
 function TextFixes() {
     Symbols();
