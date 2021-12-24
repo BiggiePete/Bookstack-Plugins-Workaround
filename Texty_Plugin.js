@@ -26,6 +26,7 @@ function NumberNames() {
         console.log('oh no');
     }
 }
+
 function Carot() {
 
     var cont = document.getElementsByClassName("page-content clearfix");
