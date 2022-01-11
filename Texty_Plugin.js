@@ -3,6 +3,10 @@ String.prototype.count = function (c) {
     for (i; i < this.length; i++)if (this[i] == c) result++;
     return result;
 };
+/*
+Next major feature is a drop down menu with fill ins for when the user is typing and wants to know what the options are
+when they press "["
+*/
 function NumberNames() {
     try {
         var cont = document.getElementsByClassName("page-content clearfix");
