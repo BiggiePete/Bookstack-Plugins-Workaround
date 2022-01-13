@@ -7,6 +7,21 @@ String.prototype.count = function (c) {
 Next major feature is a drop down menu with fill ins for when the user is typing and wants to know what the options are
 when they press "["
 */
+
+function EnumOptions(){
+    /*
+    GOAL : 
+        Make it so that when the user is typing in the document, search for when they type a new "["
+        if the latest "[" does not have a closing statemet, this, is where we perform
+    
+    Feature : 
+        make a drop down list using the <ul> and <li> to select what to type and what options are availiable for the user
+    */
+    var page = document.getElementsByClassName('mce-content-body page-content');
+    page.innerHTML += "<p>test</p>";
+
+}
+
 function NumberNames() {
     try {
         var cont = document.getElementsByClassName("page-content clearfix");
@@ -242,6 +257,7 @@ function TextFixes() {
 }
 function UpdatePage() {
     document.innerHTML += "<style>::-webkit-scrollbar {width: 5px;}img .Fixed-Image- :hover {cursor: pointer;}::-webkit-scrollbar-thumb {background: #c3c3c3;border-radius: 7px;}</style>"
+    EnumOptions();
     AddWebPrev();
     TextFixes();
 }
