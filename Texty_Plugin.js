@@ -17,8 +17,8 @@ function EnumOptions() {
     Feature : 
         make a drop down list using the <ul> and <li> to select what to type and what options are availiable for the user
     */
-    var page = document.getElementsByClassName('mce-content-body page-content');
-    page[0].innerHTML += "<p>test</p>";
+    var page = document.getElementById("tinymce");
+    var page = page.innerHTML
     console.log("tesing");
 
 }
