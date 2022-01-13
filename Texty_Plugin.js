@@ -8,7 +8,7 @@ Next major feature is a drop down menu with fill ins for when the user is typing
 when they press "["
 */
 
-function EnumOptions(){
+function EnumOptions() {
     /*
     GOAL : 
         Make it so that when the user is typing in the document, search for when they type a new "["
@@ -18,7 +18,8 @@ function EnumOptions(){
         make a drop down list using the <ul> and <li> to select what to type and what options are availiable for the user
     */
     var page = document.getElementsByClassName('mce-content-body page-content');
-    page.innerHTML += "<p>test</p>";
+    page[0].innerHTML += "<p>test</p>";
+    console.log("tesing");
 
 }
 
@@ -189,37 +190,42 @@ function Underscore() { //handle anything with an _ inront of some text
     }
 }
 function Symbols() {
-    var cont = document.getElementsByClassName("page-content clearfix");
-    var Ptags = cont[0].children[0].querySelectorAll("p");
-    var litags = cont[0].children[0].querySelectorAll("li");
-    for (let i = 0; i < Ptags.length; i++) {
-        var occurances = Ptags[i].innerHTML.count("[");
-        for (let j = 0; j < occurances; j++) {
-            // for every occurance of "["
-            var symbolstring = Ptags[i].innerHTML.slice(Ptags[i].innerHTML.indexOf("[") + 1, Ptags[i].innerHTML.indexOf("]"));
-            for (let k = 0; k < SymbolName.length; k++) {
-                if (SymbolName[k].toLowerCase() == symbolstring.toLowerCase()) {
-                    //now we know what symbol it is, now we just perform the operation
-                    Ptags[i].innerHTML = Ptags[i].innerHTML.replace("[" + symbolstring + "]", SymbolSymbol[k]);
-                }
+    try {
+        var cont = document.getElementsByClassName("page-content clearfix");
+        var Ptags = cont[0].children[0].querySelectorAll("p");
+        var litags = cont[0].children[0].querySelectorAll("li");
+        for (let i = 0; i < Ptags.length; i++) {
+            var occurances = Ptags[i].innerHTML.count("[");
+            for (let j = 0; j < occurances; j++) {
+                // for every occurance of "["
+                var symbolstring = Ptags[i].innerHTML.slice(Ptags[i].innerHTML.indexOf("[") + 1, Ptags[i].innerHTML.indexOf("]"));
+                for (let k = 0; k < SymbolName.length; k++) {
+                    if (SymbolName[k].toLowerCase() == symbolstring.toLowerCase()) {
+                        //now we know what symbol it is, now we just perform the operation
+                        Ptags[i].innerHTML = Ptags[i].innerHTML.replace("[" + symbolstring + "]", SymbolSymbol[k]);
+                    }
 
+                }
             }
         }
-    }
-    for (let i = 0; i < litags.length; i++) {
-        var occurances = litags[i].innerHTML.count("[");
-        for (let j = 0; j < occurances; j++) {
-            // for every occurance of "["
-            var symbolstring = litags[i].innerHTML.slice(litags[i].innerHTML.indexOf("[") + 1, litags[i].innerHTML.indexOf("]"));
-            for (let k = 0; k < SymbolName.length; k++) {
-                if (SymbolName[k].toLowerCase() == symbolstring.toLowerCase()) {
-                    //now we know what symbol it is, now we just perform the operation
-                    litags[i].innerHTML = litags[i].innerHTML.replace("[" + symbolstring + "]", SymbolSymbol[k]);
-                }
+        for (let i = 0; i < litags.length; i++) {
+            var occurances = litags[i].innerHTML.count("[");
+            for (let j = 0; j < occurances; j++) {
+                // for every occurance of "["
+                var symbolstring = litags[i].innerHTML.slice(litags[i].innerHTML.indexOf("[") + 1, litags[i].innerHTML.indexOf("]"));
+                for (let k = 0; k < SymbolName.length; k++) {
+                    if (SymbolName[k].toLowerCase() == symbolstring.toLowerCase()) {
+                        //now we know what symbol it is, now we just perform the operation
+                        litags[i].innerHTML = litags[i].innerHTML.replace("[" + symbolstring + "]", SymbolSymbol[k]);
+                    }
 
+                }
             }
         }
+    } catch (error) {
+        console.log("symbols failed")
     }
+
 }
 var SymbolSymbol = [
     'α',
