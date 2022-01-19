@@ -274,7 +274,7 @@ function TextFixes() {
 }
 function UpdatePage() {
     document.innerHTML += "<style>::-webkit-scrollbar {width: 5px;}img .Fixed-Image- :hover {cursor: pointer;}::-webkit-scrollbar-thumb {background: #c3c3c3;border-radius: 7px;}</style>"
-    EnumOptions();
+    //EnumOptions();
     AddWebPrev();
     TextFixes();
 }
